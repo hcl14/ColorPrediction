@@ -64,9 +64,11 @@ set.seed(50)
 #                    err.fct="sse", linear.output=FALSE, likelihood=TRUE)
 # pred=compute(fit, split2[,1:2])$net.result
 
-plot(split2$X3)
+plot(split2$X3,ylab="value",xlab="Years 2009-2016",main="Pantone Yellow")
 lines(split2$X3)
 # lines(pred,col="red")
 
 fit2<-glm(X3~X1+X2, data=split2)
 lines(predict(fit2,split2[,1:2]),col="green")
+legend(x="bottomleft", c("Actual data","Prediction"),
+       lty=c(1,1), col=c("black","green"))
