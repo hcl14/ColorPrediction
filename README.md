@@ -4,7 +4,7 @@ Attempt to build color prediction model based on the Pantone data
 According to the article http://onlinelibrary.wiley.com/doi/10.1002/col.22057/abstract
 color prediction for industry is possible.
 
-The method suggested there is clustering the colors from previous years and appying predicition model.
+The method suggested in the article is clustering the colors from previous years and applying prediction model.
 
 
 The dataset **spring-Pantone_TPX_RGB_Colours.csv** contains Pantone palettes for spring season for years 2003-2016. Year 2003 contains 9 values, other years contain 10 values. For year 2015 Pantone released two color sets for Men and Women, the Women data is used.
