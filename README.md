@@ -9,6 +9,7 @@ The method suggested in the article is clustering the colors from previous years
 The same approaches are used in the following source:
 
 Clustering ==> choosing parameter in the cluster (Hue for Yellow) ==> prediction using ANN:
+
 http://www.cmnt.lv/upload-files/ns_39art95.pdf
 
 
