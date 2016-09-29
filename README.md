@@ -1,5 +1,5 @@
 # ColorPrediction
-Attempt to build color prediction model besed on the Pantone data
+Attempt to build color prediction model based on the Pantone data
 
 According to the article http://onlinelibrary.wiley.com/doi/10.1002/col.22057/abstract
 color prediction for industry is possible.
