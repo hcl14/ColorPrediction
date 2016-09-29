@@ -9,7 +9,7 @@ The method suggested in the article is clustering the colors from previous years
 
 The dataset **spring-Pantone_TPX_RGB_Colours.csv** contains Pantone palettes for spring season for years 2003-2016. Year 2003 contains 9 values, other years contain 10 values. For year 2015 Pantone released two color sets for Men and Women, the Women data is used.
 
-**convert_to_16.R** contains the code that rounds the values to [16-color palette](http://www.december.com/html/spec/color16codes.html). For missing value simple imputation is used.
+**convert_to_16.R** contains the code that rounds the values to [16-color palette](http://www.december.com/html/spec/color16codes.html). For the missing value simple imputation was used.
 Output:
 ```
       X1 X2 X3 X4 X5 X6 X7 X8 X9 X10
