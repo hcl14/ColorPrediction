@@ -6,6 +6,13 @@ color prediction for industry is possible.
 
 The method suggested in the article is clustering the colors from previous years and applying prediction model.
 
+The same approaches are used in the following source:
+
+Clustering ==> choosing parameter in the cluster (Hue for Yellow) ==> prediction using ANN:
+http://www.cmnt.lv/upload-files/ns_39art95.pdf
+
+
+
 
 The dataset **spring-Pantone_TPX_RGB_Colours.csv** contains Pantone palettes for spring season for years 2003-2016. Year 2003 contains 9 values, other years contain 10 values. For year 2015 Pantone released two color sets for Men and Women, the Women data is used.
 
