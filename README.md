@@ -39,8 +39,8 @@ X2016  3  2  3 11  8  3  2  6  2   2
 
 The Yellow colour code was set afterwards to Pantone 13-0858 Yellow (255,220,1).
 
-The **Yellow_hue_predict.R** does some reverse-engineering of the second article. The colors were clustered to the 4-bit palette, the code for Yellow (8) is present from the year 2007 (exactly as in the source article, where the palettes were taken beginnig from 2007).
+The **Yellow_hue_predict.R** does some reverse-engineering of the second article. The colors were clustered to the 4-bit palette, the code for Yellow (8) is present from the year 2007 (exactly as in the source article, where the palettes were taken beginning from 2007).
 
-After that, mean Hue for all the colors in the Yellow group was calculated and `glm` model (x[n] ~ x[n-1]+x[n-2]) applied (if they found a precise relationship with ANN, then simple models should detect something as well). The result shows that indeed some link exists within Yellow cluster:
+After that, mean Hue for all the colors in the Yellow group was calculated and `glm` model (x[n] ~ x[n-1]+x[n-2]+x[n-3]) applied (if they found a precise relationship with ANN, then simple models should detect something as well). The result shows that indeed some link exists within Yellow cluster:
 
 ![Plot](/Rplot10.png?raw=true "GLM Prediction")
