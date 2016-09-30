@@ -56,7 +56,7 @@ lines(huedata_N2)
 # splitting into overlapping windows
 
 library(zoo)
-split2<-data.frame(rollapply(huedata_N2, 3, by = 1, c))
+split2<-data.frame(rollapply(huedata_N2, 4, by = 1, c))
 
 set.seed(50)
 # library(neuralnet)
@@ -64,11 +64,11 @@ set.seed(50)
 #                    err.fct="sse", linear.output=FALSE, likelihood=TRUE)
 # pred=compute(fit, split2[,1:2])$net.result
 
-plot(split2$X3,ylab="value",xlab="Years 2009-2016",main="Pantone Yellow")
-lines(split2$X3)
+plot(split2$X4,ylab="value",xlab="Years 2010-2016",main="Pantone Yellow, x[n]~x[n-1]+x[n-2]+x[n-3]")
+lines(split2$X4)
 # lines(pred,col="red")
 
-fit2<-glm(X3~X1+X2, data=split2)
-lines(predict(fit2,split2[,1:2]),col="green")
+fit2<-glm(X4~X1+X2+X3, data=split2)
+lines(predict(fit2,split2[,1:3]),col="green")
 legend(x="bottomleft", c("Actual data","Prediction"),
        lty=c(1,1), col=c("black","green"))
