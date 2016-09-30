@@ -44,3 +44,23 @@ The **Yellow_hue_predict.R** does some reverse-engineering of the second article
 After that, mean Hue for all the colors in the Yellow group was calculated and `glm` model (x[n] ~ x[n-1]+x[n-2]+x[n-3]) applied (if they found a precise relationship with ANN, then simple models should detect something as well). The result shows that indeed some link exists within Yellow cluster:
 
 ![Plot](/Rplot10.png?raw=true "GLM Prediction")
+
+Two last states can be indeed predicted (i.e. the data for them can be not included during the training of the model):
+```R
+huedata_N2<-as.numeric(lapply(5:12,meanhue_N2))
+library(zoo)
+split2<-data.frame(rollapply(huedata_N2, 4, by = 1, c))
+fit2<-glm(X4~X1+X2+X3, data=split2)
+
+huedata_N2<-as.numeric(lapply(5:13,meanhue_N2))
+split2<-data.frame(rollapply(huedata_N2, 4, by = 1, c))
+
+plot(split2$X4,ylab="value",xlab="Years 2010-2016",main="x[n]~x[n-1]+x[n-2]+x[n-3]")
+lines(split2$X4)
+lines(predict(fit2,split2[,1:3]),col="green")
+legend(x="bottomleft", c("Actual data","Prediction"),
+       lty=c(1,1), col=c("black","green"))
+```
+(and the same for 5:13-5:14)
+
+However the amount of the data is insufficient to derive any conclusions
