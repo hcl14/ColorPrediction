@@ -17,6 +17,8 @@ http://www.cmnt.lv/upload-files/ns_39art95.pdf
 
 The dataset **spring-Pantone_TPX_RGB_Colours.csv** contains Pantone palettes for spring season for years 2003-2016. Year 2003 contains 9 values, other years contain 10 values. For year 2015 Pantone released two color sets for Men and Women, the Women data is used.
 
+The dataset **Full_Pantone_TPX_RGB_Colours.csv** contains all Pantone color reports in RGB, 2003-2016
+
 **convert_to_16.R** contains the code that rounds the values to [16-color palette](http://www.december.com/html/spec/color16codes.html). For the missing value simple imputation was used.
 Output:
 ```
