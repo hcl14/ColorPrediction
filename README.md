@@ -68,6 +68,6 @@ X2016f  5  5  6  5  6  3  5  2  2   1
 
 The target cluster is 6. If it is not present for a certain year, the previous value is used.
 
-The `glm` model was trained on the first 20 values (out of 28), the Hue dynamics for the last 8 was predicted.  The result shows that prediction is possible.
+The `glm` model was trained on the first 20 values (out of 28), the Hue dynamics for the last 8 (4 years) was approximately predicted.  The result shows that prediction is possible.
 
 ![Plot](/Fulldata_glm.png?raw=true "GLM Prediction, Full data")
