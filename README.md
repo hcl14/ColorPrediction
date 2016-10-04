@@ -27,6 +27,29 @@ They did not use Fuzzy C-Means for their actual result, just show the picture.  
 I failed to exactly reproduce their vertical clusters, it seems that we have a little bit different RGB values (mine are taken generally from pantone.com). My clustering vs theirs (vertical sequences):
 ![Plot](/img/Clustering for 23-27.png?raw=true "GLM Prediction")
 
+The following prediction was obtained (0-360 degrees, i.e. 328 and 4 are quite nearby):
+```
+> real  
+205 218 6 104 31 53   4 1 181 249
+> pred
+203 222 2 117 25 58 328 1 119 225
+```
+
+I attempted pure RGB clustering using euclidean metric as well (**RGB_ordering.R**), however the results are not as good, maybe because I'm still using Hue as covariate (regression over RGB values is worth to try):
+![Plot](/img/RGB clustering.png?raw=true "GLM Prediction")
+
+```
+> real
+181 249 104   1 6 53 31 218 4 205
+> pred
+179   9  92 357 9 14  5 209 1 179
+```
+
+Also the general program tries to test all the 5-sequences in the data through a loop. The results are totally not that impressive (notice that prediction often resembles the shifted data):
+![Plot](/img/N2-N3-N7.png?raw=true "GLM Prediction")
+
+
+
 
 ## Approach 1: clustering to 4-bit uniform palette
 **convert_to_16.R** contains the the first attempt that rounds the values to [16-color palette](http://www.december.com/html/spec/color16codes.html). For the missing value simple imputation was used.
