@@ -46,7 +46,7 @@ I attempted pure RGB clustering using euclidean metric as well (**RGB_ordering.R
 ```
 
 Also the general program tries to test all the 5-sequences in the data through a loop. The results are totally not that impressive (notice that prediction often resembles the shifted data):
-![Plot](/img/N2-N3-N7.png?raw=true "GLM Prediction")
+![Plot](/img/N2-N7-N3.png?raw=true "GLM Prediction")
 
 
 
