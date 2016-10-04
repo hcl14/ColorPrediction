@@ -36,8 +36,10 @@ clustdat<-c() # the dataframe of the corresponding true rearranged colors
 for (gen_loop in 1:24) # Main loop
 {
   x<-x1[gen_loop : (4+gen_loop)]
-  
-x<-x1[23:27] # the example considered
+
+# alternate single start from here (uncomment these two lines) :
+# x1<-x  
+# x<-x1[23:27] # the example considered
 ########################################## Organizing vertical sequences ############
 
 # Imagine we have 2-D table. Horizontal axis is 10 pantone colors for each season.
@@ -68,7 +70,7 @@ mindist<-function(y,palette) which.min(apply(palette, 2, function(z) ifelse(is.n
 
 # (obsolete)
 # The function returns the index of the element from the vector "palette" which is closest (min. angle) to the certain element y
-minangle<-function(y,palette) which.min(apply(data.frame(palette)*360, 2, function(z) ifelse(is.na(z[1]),NA, angle_btw_2(y*360,z))))
+# minangle<-function(y,palette) which.min(apply(data.frame(palette)*360, 2, function(z) ifelse(is.na(z[1]),NA, angle_btw_2(y*360,z))))
 
 # the function computes distances for all pairs (x,y) from two vectors and finds indices for minimal one
 mindistvect<-function(x1,y1){
@@ -76,7 +78,10 @@ mindistvect<-function(x1,y1){
   for (k in 1:10)
   {
     # there is no symmetry here
-    for (l in 1:10) {dists[k,l]<- ifelse((is.na(x1[1,k]) || is.na(y1[1,l])),NA, (x1[1,k]-y1[1,l])^2)}
+    # The first is their approach with squared difference
+    # for (l in 1:10) {dists[k,l]<- ifelse((is.na(x1[1,k]) || is.na(y1[1,l])),NA, (x1[1,k]-y1[1,l])^2)}
+    # My approach computes the angle and takes other coordinates into account
+    for (l in 1:10) {dists[k,l]<- ifelse((is.na(x1[1,k]) || is.na(y1[1,l])),NA, (angle_btw_2(y1[1,l]*360,x1[1,k]*360)^2)/(360^2))}
   }
   which(dists==min(dists,na.rm = TRUE),arr.ind = TRUE)
 }
@@ -163,7 +168,7 @@ gm11<-function(x,k)
 }  
 
 
-## Paint balls (obsolete)
+# #Paint balls (obsolete)
 # plot(1, type="n", xlab="", ylab="", xlim=c(0, 25), ylim=c(0, 1))
 # for (j in 1:length(x)){
 #   x_order<-x[[j]][,as.numeric(seq_data[j,])]
@@ -178,6 +183,8 @@ real<-round(x_hsv[[5]][1,as.numeric(seq_data[5,])]*360)
 # obtaining predictions from 4 previous observations
 pred<-round(sapply(1:10, function(i) gm11(as.numeric(x_hue_ordered[1:4,i]),5)[5]*360) %% 360)
 
+
+### End of simgle run
 # storing results
 clustdat<-rbind(clustdat,real)
 res<-rbind(res,pred)
