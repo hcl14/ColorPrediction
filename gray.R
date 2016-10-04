@@ -49,7 +49,7 @@ for (gen_loop in 1:24) # Main loop
 # the minimal euclidean distance (authors call it MSE) from the colors above, to obtain vertical sequences.
 # One important diference: they operate in HSV, so the task is to find the nearest angle 0-360
 
-# (obsolete)
+
 # Compute nearest angle, 
 # source: http://gamedev.stackexchange.com/questions/4467/comparing-angles-and-working-out-the-difference
 angle_btw_2 <- function(a1,a2) {180 - abs(abs(a1 - a2) - 180)}
@@ -80,7 +80,7 @@ mindistvect<-function(x1,y1){
     # there is no symmetry here
     # The first is their approach with squared difference
     # for (l in 1:10) {dists[k,l]<- ifelse((is.na(x1[1,k]) || is.na(y1[1,l])),NA, (x1[1,k]-y1[1,l])^2)}
-    # My approach computes the angle and takes other coordinates into account
+    # My approach computes the angle
     for (l in 1:10) {dists[k,l]<- ifelse((is.na(x1[1,k]) || is.na(y1[1,l])),NA, (angle_btw_2(y1[1,l]*360,x1[1,k]*360)^2)/(360^2))}
   }
   which(dists==min(dists,na.rm = TRUE),arr.ind = TRUE)
