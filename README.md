@@ -22,7 +22,7 @@ The dataset **Full_Pantone_TPX_RGB_Colours.csv** contains all Pantone color repo
 ## Approach 3: Using the article in /theory
 **gray.R** contains the actual implementation in R that loops through all the data (28-4 rows) with 5-row moving window and constructs predictions using manual euctidean clustering for HUE coordinate ang GM(1,1) model for prediction.
 
-They did not use Fuzzy C-Means for their actual result, just show the picture.  They think of Pantone 10 colors as clusters, and ropose FCM to aggregate real-world data (from images,etc.) into similar n-color sequences. The clusternig was performed manually using euclidean metric.
+It seems that they did not use Fuzzy C-Means for their main result, just show the picture (or I need to read more carefully).  They think of Pantone 10 colors as clusters, and propose FCM to aggregate real-world data (from images,etc.) into similar n-color sequences. The clusternig was performed manually using euclidean metric.
 
 I failed to exactly reproduce their vertical clusters, it seems that we have a little bit different RGB values (mine are taken generally from pantone.com). My clustering vs theirs (vertical sequences):
 ![Plot](/img/Clustering for 23-27.png?raw=true "GLM Prediction")
