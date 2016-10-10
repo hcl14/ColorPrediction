@@ -48,8 +48,45 @@ I attempted pure RGB clustering using euclidean metric as well (**RGB_ordering.R
 Also the general program tries to test all the 5-sequences in the data through a loop. The results are totally not that impressive (notice that prediction often resembles the shifted data):
 ![Plot](/img/N2-N7-N3.png?raw=true "GLM Prediction")
 
+**RGB_ordering.R** Prediction for other two parameters (sat, val) wasn't successful. In order to construct some colors, prediction based on R,G,B components was used (R component shows good fit) and Hue is ther replaced with previous successful prediction. Residual correction proposed in the original article was also used:
 
+hue:
+```
+> real
+   X4  X3 X2 X10 X9 X5 X8 X1  X6  X7
+h 205 218  6 104 31 53  4  1 181 249
+> pred
+ [1] 203 222   3 117  25  58 328   1 122 225
+```
+red:
+```
+> real_r
+  X10  X6  X8  X7  X9 X4  X3  X1  X2  X5
+1 113 152 220 152 177  3 145 247 247 251
+> pred_r
+ [1] 127 146 225 165 212   0 138 255 109  41
+```
+green:
+```
+> real_g
+   X6  X9  X3  X7  X1  X8  X5 X10  X2 X4
+1 152 177 145 152 247 220 251 113 247  3
+> pred_g
+ [1] 113 255  61 217 249  83  99 138  58 203
+```
 
+blue:
+```
+> real_b
+   X5  X1  X3  X7 X4 X10  X6  X8  X9  X2
+1 251 247 145 152  3 113 152 220 177 247
+> pred_b
+ [1] 255 107 178 255   2 203 159  49 147 205
+```
+
+Result:
+
+![Plot](/img/rgb_hue_predict.png?raw=true "GLM Prediction")
 
 ## Approach 1: clustering to 4-bit uniform palette
 **convert_to_16.R** contains the the first attempt that rounds the values to [16-color palette](http://www.december.com/html/spec/color16codes.html). For the missing value simple imputation was used.
