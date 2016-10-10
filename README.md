@@ -88,7 +88,7 @@ Result (upper - real, lower - predicted):
 
 ![Plot](/img/rgb_hue_predict.png?raw=true "GLM Prediction")
 
-The accuracy arcieved is somewhat ~50%. No idean how authors obtained their precise results.
+The accuracy arcieved is somewhat ~50%. No idea how authors obtained their precise results.
 For example, the results for H-S-V prediction (**hsv_color_predict.R**) are:
 
 ![Plot](/img/hue_sat_val_predict.png?raw=true "GLM Prediction")
