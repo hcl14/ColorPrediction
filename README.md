@@ -84,9 +84,16 @@ blue:
  [1] 255 107 178 255   2 203 159  49 147 205
 ```
 
-Result:
+Result (upper - real, lower - predicted):
 
 ![Plot](/img/rgb_hue_predict.png?raw=true "GLM Prediction")
+
+The accuracy arcieved is somewhat ~50%. No idean how authors obtained their precise results.
+For example, the results for H-S-V prediction (**hsv_color_predict.R**) are:
+
+![Plot](/img/hue_sat_val_predict.png?raw=true "GLM Prediction")
+
+
 
 ## Approach 1: clustering to 4-bit uniform palette
 **convert_to_16.R** contains the the first attempt that rounds the values to [16-color palette](http://www.december.com/html/spec/color16codes.html). For the missing value simple imputation was used.
